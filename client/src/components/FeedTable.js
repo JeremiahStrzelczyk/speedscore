@@ -2,7 +2,7 @@ import React from "react";
 import PostButton from "./PostButton";
 import FeedMode from "./FeedMode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import FeedPost from "./FeedPost";
+// import FeedPost from "./FeedPost";
 
 class FeedTable extends React.Component {
   constructor(props) {
@@ -14,12 +14,9 @@ class FeedTable extends React.Component {
     };
   }
 
-  componentDidMount() {
-    console.log("FeedTable Mounted");
-  }
+  componentDidMount() {}
 
   componentDidUpdate(prevState, thisState) {
-    console.log("feedTable Update");
     if (this.props.statusIcon === "spinner") {
       // this.props.resetIcon();
     }
@@ -34,7 +31,6 @@ class FeedTable extends React.Component {
   };
 
   render() {
-    console.log("FeedTable render method");
     return (
       <div
         id="feedTableTab"
@@ -64,7 +60,7 @@ class FeedTable extends React.Component {
           <tbody>
             {this.props.objs === null || this.props.objs.length === 0 ? (
               <tr>
-                <td colSpan="5" scope="rowgroup">
+                <td colSpan="5">
                   <i>Feed unable to load</i>
                 </td>
               </tr>

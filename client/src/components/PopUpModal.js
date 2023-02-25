@@ -32,7 +32,7 @@ class PopUpModal extends React.Component {
   };
 
   postComment = async () => {
-    if (this.state.commentText != "") {
+    if (this.state.commentText !== "") {
       let today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000);
       let date = today.toISOString().substr(0, 10);
       let time = today.toISOString().substr(11, 5);
@@ -44,7 +44,8 @@ class PopUpModal extends React.Component {
         time: time,
       };
 
-      let res = await this.props.postComment(
+      // let res = await this.props.postComment(
+      await this.props.postComment(
         this.props.postId,
         newComment,
         this.props.commentCount + 1
@@ -61,7 +62,6 @@ class PopUpModal extends React.Component {
   };
 
   renderComments = () => {
-    // console.log("comments: ", this.props.comments);
     const table = [];
     for (let i = 0; i < this.props.comments.length; i++) {
       table.push(
@@ -108,6 +108,7 @@ class PopUpModal extends React.Component {
           <Modal.Footer>
             {this.props.likes}
             <img
+              alt="todo"
               src={like}
               // onClick={() => this.like()}
               width="20px"

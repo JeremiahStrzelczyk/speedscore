@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import AppMode from "./AppMode.js";
+// import AppMode from "./AppMode.js";
 import CreateAccount from "./CreateAccount.js";
 
 class LoginPage extends React.Component {
@@ -242,10 +242,10 @@ class LoginPage extends React.Component {
             className="btn btn-primary fm-primary-btn"
           >
             test
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
               icon={this.state.loginBtnIcon}
               className={this.state.loginBtnIcon === "spinner" ? "fa-spin" : ""}
-            />
+            /> */}
             &nbsp;{this.state.loginBtnLabel}
           </button>
         </form>

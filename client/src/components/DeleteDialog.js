@@ -1,9 +1,8 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class DeleteDialog extends React.Component {
   render() {
-    console.log("rendering delete dialog");
     return (
       <div
         id="deleteRoundDialog"

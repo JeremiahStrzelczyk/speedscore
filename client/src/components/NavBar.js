@@ -8,10 +8,10 @@ class NavBar extends React.Component {
   render() {
     return (
       <header className="navbar">
-        <a id="sLink" className="skip-link" tabIndex="0">
+        {/* <a id="sLink" className="skip-link" tabIndex="0">
           Skip to content
-        </a>
-        {this.props.mode != AppMode.LOGIN && !this.props.modalOpen ? (
+        </a> */}
+        {this.props.mode !== AppMode.LOGIN && !this.props.modalOpen ? (
           <button
             id="menuBtn"
             type="button"
@@ -33,7 +33,7 @@ class NavBar extends React.Component {
         <h1 id="appName" className="navbar-title">
           SpeedScore
         </h1>
-        {this.props.mode != AppMode.LOGIN && !this.props.modalOpen ? (
+        {this.props.mode !== AppMode.LOGIN && !this.props.modalOpen ? (
           <div className="navbar-right-items">
             <input
               id="searchBox"

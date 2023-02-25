@@ -1,5 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RoundsMode from "./RoundsMode.js";
 import RoundsTable from "./RoundsTable.js";
 import RoundForm from "./RoundForm.js";
@@ -34,7 +34,6 @@ class RoundsPage extends React.Component {
   };
 
   initiateDeleteRound = (val) => {
-    console.log("initiate delete round");
     this.setState({ deleteId: val, deleteDialogOpen: true });
     this.props.toggleModalOpen();
   };
@@ -54,7 +53,8 @@ class RoundsPage extends React.Component {
     });
   };
   confirmDeleteRound = async () => {
-    const res = await this.props.deleteRound(this.state.deleteId);
+    // await this.props.deleteRound(this.state.deleteId);
+    await this.props.deleteRound(this.state.deleteId);
   };
 
   toggleRenderNewBadgeToast = () => {
@@ -65,7 +65,7 @@ class RoundsPage extends React.Component {
     if (this.state.deleteDialogOpen) {
       return (
         <>
-          <div class="space">
+          <div className="space">
             <DeleteDialog
               confirmDeleteRound={this.confirmDeleteRound}
               cancelDeleteRound={this.cancelDeleteRound}
@@ -80,7 +80,7 @@ class RoundsPage extends React.Component {
     if (this.state.earnBadgesOpen) {
       return (
         <>
-          <div class="space">
+          <div className="space">
             <EarnBadges cancelBtn={this.backBtn} />
           </div>
         </>
@@ -167,6 +167,8 @@ class RoundsPage extends React.Component {
             toggleRenderNewBadgeToast={this.toggleRenderNewBadgeToast}
           />
         );
+      default:
+        console.log("RoundsPage: Default case in switch");
     }
   }
 }

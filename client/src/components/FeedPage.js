@@ -1,11 +1,12 @@
 import React from "react";
-import logo from "../images/sslogo2.png";
+// import logo from "../images/sslogo2.png";
 import PostPage from "./PostPage";
 import FeedTable from "./FeedTable";
 import FeedMode from "./FeedMode.js";
 import PopUpModal from "./PopUpModal";
 import FeedPost from "./FeedPost";
 
+import baseURL from "../app/api/apiSlice";
 class FeedPage extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +42,6 @@ class FeedPage extends React.Component {
   };
 
   resetIcon = () => {
-    console.log("Reset Icon");
     this.setState({
       statusIcon: "check",
     });
@@ -68,11 +68,11 @@ class FeedPage extends React.Component {
   };
 
   async componentDidMount() {
-    console.log("FeedPage Mounted");
-    const url = "/posts/" + this.state.headId;
+    const url = baseURL + "/posts/" + this.state.headId;
     // this.setState({ statusIcon: "spinner" });
 
-    let res = await fetch(url)
+    // let res = await fetch(url);
+    await fetch(url)
       .then((response) => response.json())
       .then((obj) => {
         this.setState({
@@ -84,10 +84,10 @@ class FeedPage extends React.Component {
 
   async componentDidUpdate() {
     if (this.state.update) {
-      console.log("Update true");
-      const url = "/posts/" + this.state.headId;
+      const url = baseURL + "/posts/" + this.state.headId;
 
-      let res = await fetch(url)
+      // let res = await fetch(url);
+      await fetch(url)
         .then((response) => response.json())
         .then((obj) => {
           this.setState({
@@ -96,11 +96,10 @@ class FeedPage extends React.Component {
           });
         });
       this.buildTable();
-    } else console.log("Update false");
+    }
   }
 
   buildTable = async () => {
-    console.log("building table");
     const table = [];
     for (let r = 0; r < this.state.objs.length; ++r) {
       if (this.hasBuddy(this.state.objs[r].userData.userName)) {
@@ -206,7 +205,7 @@ class FeedPage extends React.Component {
       title = userData.firstName + " created a post on " + postData.date + "!";
       body = postData.comment;
     } else {
-      console.log("Unexpected branch in FeedPage.js");
+      console.log("FeedPage: Unexpected branch");
     }
 
     this.setState({
@@ -227,7 +226,8 @@ class FeedPage extends React.Component {
     const updatedPost = this.state.objs[r];
     updatedPost.postData.fistBumpCount++;
     const updateId = this.state.objs[r]._id;
-    const res = await this.props.updatePost(updatedPost, updateId);
+    // const res = await this.props.updatePost(updatedPost, updateId);
+    await this.props.updatePost(updatedPost, updateId);
     this.setState({
       update: true,
       statusIcon: "spinner",
@@ -241,9 +241,10 @@ class FeedPage extends React.Component {
    * parse it first before using
    ***************************************************************** */
   getProfilePic = async (userId) => {
-    const url = "/users/" + userId;
+    const url = baseURL + "/users/" + userId;
 
-    let res = await fetch(url)
+    // let res = await fetch(url);
+    await fetch(url)
       .then((response) => response.json())
       .then((user) => {
         let userObj = JSON.parse(user); //Turn string back into Object
@@ -283,7 +284,7 @@ class FeedPage extends React.Component {
       case FeedMode.FEEDPOST:
         return (
           <>
-            <div class="space">
+            <div className="space">
               <PostPage
                 postComment={this.props.postComment}
                 postSuccess={this.successBtn}

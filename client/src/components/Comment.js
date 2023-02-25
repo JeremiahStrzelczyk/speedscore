@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../images/sslogo2.png";
+// import logo from "../images/sslogo2.png";
 import Card from "react-bootstrap/Card";
 
 class CommentPage extends React.Component {

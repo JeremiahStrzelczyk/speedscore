@@ -1,0 +1,48 @@
+{
+  "name": "speedscore-api",
+  "version": "2.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeremiahStrzelczyk/speedscore"
+  },
+  "keywords": [
+    "heroku",
+    "react",
+    "express",
+    "node"
+  ],
+  "author": "J. Strzelczyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeremiahStrzelczyk/speedscore/issues"
+  },
+  "homepage": "https://github.com/JeremiahStrzelczyk/speedscore#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.9.1",
+    "passport": "^0.5.3",
+    "passport-github": "^1.1.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^12.1.2",
+    "nanoid": "^3.3.4",
+    "nodemon": "^2.0.14"
+  },
+  "engines": {
+    "node": ">=14.x"
+  },
+  "type": "module"
+}

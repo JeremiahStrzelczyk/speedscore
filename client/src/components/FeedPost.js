@@ -6,7 +6,7 @@ import CommentImage from "../images/comment.png";
 
 class FeedPost extends React.Component {
   render() {
-    const { pic, title, likeCount, commentCount, comment } = this.props;
+    const { pic, title, likeCount, comment } = this.props;
     return (
       <Card id="feedPostCard" className="text-left mb-3 centered w-100">
         <Card.Img
@@ -27,6 +27,7 @@ class FeedPost extends React.Component {
         <Card.Footer>
           <Card.Text id="feedPostLikes" className="h3">
             <img
+              alt="Like a post"
               id="feedPostLikeImg"
               onClick={() => {
                 this.props.handleLikeClick(this.props.r);
@@ -39,6 +40,7 @@ class FeedPost extends React.Component {
           </Card.Text>
           <Card.Text className="h3">
             <img
+              alt="Comment"
               id="feedPostCommentImg"
               onClick={() => {
                 this.props.handleTableClick(this.props.r);
